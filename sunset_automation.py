@@ -10,7 +10,7 @@ cron = CronTab(user=getpass.getuser())
 
 shutter_control.shutter_close()
 sunrise_time = sun_event.get_next_sunrise()
-job = cron.new(command = python_dir + " " + working_dir + 'velux-integra-control/shutter_sunrise.py')
+job = cron.new(command = python_dir + " " + working_dir + 'velux-integra-control/sunrise_automation.py')
 job.dom.on(sunrise_time.strftime('%d'))
 job.month.on(sunrise_time.strftime('%m'))
 job.hour.on(sunrise_time.strftime('%H'))
