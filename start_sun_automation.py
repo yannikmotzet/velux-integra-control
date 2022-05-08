@@ -18,7 +18,7 @@ if sunrise_time < sunset_time:
     job.month.on(sunrise_time.strftime('%m'))
     job.hour.on(sunrise_time.strftime('%H'))
     job.minute.on(sunrise_time.strftime('%M'))
-    #cron.remove_all(command='/home/pi/velux/shutter_sunset.py')
+    cron.remove_all(command = working_dir + 'velux-integra-control/sunset_automation.py')
     cron.write()
 
 else:
@@ -27,7 +27,7 @@ else:
     job.month.on(sunset_time.strftime('%m'))
     job.hour.on(sunset_time.strftime('%H'))
     job.minute.on(sunset_time.strftime('%M'))
-    #cron.remove_all(command='/home/pi/velux/shutter_sunrise.py')
+    cron.remove_all(command = working_dir + 'velux-integra-control/sunrise_automation.py')
     cron.write()
 
 

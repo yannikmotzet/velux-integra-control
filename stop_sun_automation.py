@@ -1,8 +1,9 @@
 import getpass
 from crontab import CronTab
 
+working_dir = "/home/pi/"
 cron = CronTab(user=getpass.getuser())
 
-cron.remove_all(command='/home/pi/velux/shutter_sunrise.py')
-cron.remove_all(command='/home/pi/velux/shutter_sunset.py')
+cron.remove_all(command = working_dir + 'velux-integra-control/sunriset_automation.py')
+cron.remove_all(command = working_dir + 'velux-integra-control/sunset_automation.py')
 cron.write()
