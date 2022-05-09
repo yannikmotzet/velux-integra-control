@@ -1,16 +1,15 @@
-import shutter_control
-import sun_event
+import os
 import getpass
 from crontab import CronTab
+import shutter_control
+import sun_event
 
-working_dir = "/home/pi/"
-python_dir = "/usr/bin/python3"
-
+working_dir = os.getenv('VELUX_CONTROL_PATH')
 cron = CronTab(user=getpass.getuser())
 
 shutter_control.shutter_open()
 sunset_time = sun_event.get_next_sunset()
-job = cron.new(command = python_dir + " " + working_dir + 'velux-integra-control/sunset_automation.py')
+job = cron.new(command = "python3 " + working_dir + 'velux-integra-control/sunset_automation.py')
 job.dom.on(sunset_time.strftime('%d'))
 job.month.on(sunset_time.strftime('%m'))
 job.hour.on(sunset_time.strftime('%H'))

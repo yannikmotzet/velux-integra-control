@@ -43,6 +43,7 @@ def get_next_sunrise():
     else:
         tomorrow = datetime.date.today() + datetime.timedelta(days=1)
         tomorrow_sr_utc = sun.get_sunrise_time(tomorrow)
+        # TODO handle time change
         tomorrow_sr_local = tomorrow_sr_utc.astimezone(tz.tzlocal())
         write_sun_event(last_sr_file, tomorrow_sr_utc.strftime('%H:%M'))
         return tomorrow_sr_local
@@ -62,6 +63,7 @@ def get_next_sunset():
     else:
         tomorrow = datetime.date.today() + datetime.timedelta(days=1)
         tomorrow_ss_utc = sun.get_sunset_time(tomorrow)
+        # TODO handle time change
         tomorrow_ss_local = tomorrow_ss_utc.astimezone(tz.tzlocal())
         write_sun_event(last_ss_file, tomorrow_ss_utc.strftime('%H:%M'))
         return tomorrow_ss_local
