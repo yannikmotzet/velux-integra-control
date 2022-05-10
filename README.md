@@ -7,7 +7,7 @@ This repo contains python scripts to control VELUX INTEGRA products by controlli
 script | description
 ------ | ------
 ``` shutter_open.py t, shutter_stop.py, shutter_close.py t```   | open, stop, close shutter  (optional argument with duration in seconds, default is 0.2s)
-``` start_sun_automation.py, stop_sun_automation.py ``` |  start/stop sun dependent control (set environment variable ```export VELUX_CONTROL_PATH=path_to_repo``` and change location in ```sun_event/sun_event.py```)
+``` start_sun_automation.py, stop_sun_automation.py ``` |  start/stop sun dependent control (change coordinates in ```sun_event/sun_event.py```)
 
 ## Wiring
 Here you can see the wiring with the KLI 310. The KLI 311/312/313 versions work the same with the difference that they are only compatible to a specific product category (see imprinted logo).
